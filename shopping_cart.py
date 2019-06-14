@@ -74,11 +74,12 @@ for selected_id in selected_ids:
 #products_count = len(matching_products)
 #print("YOU BOUGHT " +str(products_count) + " PRODUCTS:")
 
-
+tax = subtotal_price*.0875
 print("SUBTOTAL: " + str(subtotal_price))
+print("TAX: " + str(tax))
+print("TOTAL PRICE: " + str(subtotal_price + tax))
 
-
-print("-------------------------------------")
+print("-------------------------------------") 
 print("THANK YOU! PLEASE COME AGAIN!")
 print("-------------------------------------")
 
