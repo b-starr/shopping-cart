@@ -52,6 +52,20 @@ while True:
 
 #print(selected_ids)
 
+print("-------------------------------------")
+print("STARR AND SHOP")
+print("WWW.STAR-AND-SHOP.COM")
+print("-------------------------------------")
+
+print("CHECKOUT AT: ")
+import datetime
+now = datetime.datetime.now()
+print(str(now))
+print("-------------------------------------")
+
+
+
+    
 for selected_id in selected_ids:
     matching_products = [p for p in products if str(p["id"]) == str(selected_id)]
     matching_product = matching_products[0]
