@@ -2,6 +2,9 @@
 
 #from pprint import pprint
 
+import datetime
+import time
+
 products = [
     {"id":1, "name": "Chocolate Sandwich Cookies", "department": "snacks", "aisle": "cookies cakes", "price": 3.50},
     {"id":2, "name": "All-Seasons Salt", "department": "pantry", "aisle": "spices seasonings", "price": 4.99},
@@ -61,23 +64,31 @@ print("-------------------------------------")
 
 print("CHECKOUT AT: ")
 import datetime
-now = datetime.datetime.now()
+now = time.strftime("%Y-%m-%d %H:%M:%p") #help from Shao Zhou
 print(str(now))
 print("-------------------------------------")
 print("SELECTED PRODUCTS: ")
 for selected_id in selected_ids:
     matching_products = [p for p in products if str(p["id"]) == str(selected_id)]
     matching_product = matching_products[0]
+    price_usd = '${0:.2f}'.format(matching_product["price"]) #USD format
     subtotal_price = subtotal_price + matching_product["price"]
-    print("... " + matching_product["name"] + " " + str(matching_product["price"]))
-            
+    print("... " + str(matching_product["name"]) + " " + str(price_usd))
+
 #products_count = len(matching_products)
 #print("YOU BOUGHT " +str(products_count) + " PRODUCTS:")
-
+print("-------------------------------------")
 tax = subtotal_price*.0875
-print("SUBTOTAL: " + str(subtotal_price))
-print("TAX: " + str(tax))
-print("TOTAL PRICE: " + str(subtotal_price + tax))
+tax_usd = '${0:.2f}'.format(tax) 
+
+subtotal_price_usd = '${0:.2f}'.format(subtotal_price) 
+
+total_price = subtotal_price + tax
+total_price_usd = '${0:.2f}'.format(total_price) 
+
+print("SUBTOTAL: " + str(subtotal_price_usd))
+print("TAX: " + str(tax_usd))
+print("TOTAL PRICE: " + str(total_price_usd)) #help from Shao Zhou
 
 print("-------------------------------------") 
 print("THANK YOU! PLEASE COME AGAIN!")
